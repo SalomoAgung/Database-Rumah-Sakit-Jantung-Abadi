@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('dokters', function (Blueprint $table) {
             $table->string("id_dokter")->unique();
             $table->string("nama");
-            $table->string("ttl");
+            $table->date("ttl_dokter");
             $table->string("alamat");
             $table->enum("gender", ["Male"], ["Female"]);
-            $table->string("telp");
+            $table->string("telp_dokter");
         });
     }
 
