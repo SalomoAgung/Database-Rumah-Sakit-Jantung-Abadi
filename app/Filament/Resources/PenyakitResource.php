@@ -33,7 +33,7 @@ class PenyakitResource extends Resource
                 Card::make() ->schema([
                     TextInput::make('ID_Penyakit')->required()->unique(ignorable: fn ($record) => $record),
                     TextInput::make('Nama_Penyakit')->required(),
-                    TextInput::make('Jumlah_Pasien')->required()->is_numeric(),
+                    TextInput::make('Jumlah_Pasien')->required(),
                 ])
                 ->columns(2),
             ]);
