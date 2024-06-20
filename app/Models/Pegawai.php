@@ -8,9 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Pegawai extends Model
 {
     use HasFactory;
-    protected $fillable = ["ID_Pegawai", "Nama", "TTL_Pegawai", "Alamat", "Gender", "Telp_Pegawai", "Role_Pegawai"];
+    
+    protected $fillable = [
+        'ID_Pegawai',
+        'Nama_Pegawai',
+        'TTL_Pegawai',
+        'Alamat_Pegawai',
+        'Gender',
+        'Telp_Pegawai',
+        'Role_Pegawai'
+    ];
+
     protected $table = 'pegawais';
-    protected $primaryKey = 'id';
     public $incrementing = false;
+    protected $primaryKey = 'ID_Pegawai';
     protected $keyType = 'string';
+    public $timestamps = false;
 }

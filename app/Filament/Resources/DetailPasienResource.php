@@ -32,13 +32,13 @@ class DetailPasienResource extends Resource
         return $form
             ->schema([
                 Card::make() ->schema([
-                    TextInput::make('ID_Detail_Pasien')->required()->unique(ignorable: fn ($record) => $record),
-                    TextInput::make('ID_Pasien')->required()->unique(ignorable: fn ($record) => $record),
-                    TextInput::make('ID_Dokter')->required()->unique(ignorable: fn ($record) => $record),
+                    TextInput::make('ID_Detail_Pasien')->label('ID Detail Pasien')->required()->unique(ignorable: fn ($record) => $record),
+                    TextInput::make('ID_Pasien')->label('ID Pasien')->required(),
+                    TextInput::make('ID_Dokter')->label('ID Dokter')->required(),
                     TextInput::make('Tekanan_Darah')->required(),
                     TextInput::make('Detak_Jantung')->required(),
                     TextInput::make('Gula_Darah')->required(),
-                    TextInput::make('ID_Penyakit')->required()->unique(ignorable: fn ($record) => $record),
+                    TextInput::make('ID_Penyakit')->label('ID Penyakit')->required(),
                 ])
                 ->columns(2),
             ]);
@@ -48,7 +48,7 @@ class DetailPasienResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')
+                TextColumn::make('ID_Detail_Pasien')
                     ->label('ID Detail Pasien')
                     ->sortable()
                     ->searchable(),

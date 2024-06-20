@@ -31,15 +31,22 @@ class DokterResource extends Resource
             ->schema([
                 Card::make()
                     ->schema([
-                        TextInput::make('id_dokter')->required()->unique(ignorable: fn ($record) => $record),
-                        TextInput::make('nama')->required(),
-                        DatePicker::make('ttl_dokter')->required(),
-                        TextInput::make('alamat')->required(),
-                        Select::make("gender")->options([
+                        TextInput::make('ID_Dokter')
+                            ->label('ID Dokter')
+                            ->required()
+                            ->unique()
+                            ->maxLength(5),
+                        TextInput::make('Nama_Dokter')
+                            ->label('Nama Dokter')
+                            ->required()
+                            ->maxLength(50),
+                        DatePicker::make('TTL_Dokter')->required(),
+                        TextInput::make('Alamat_Dokter')->required(),
+                        Select::make("Gender")->options([
                             "Male" => "Male",
                             "Female" => "Female"
                         ]),
-                        TextInput::make('telp_dokter')->required()
+                        TextInput::make('Telp_Dokter')->required()
                     ])
                     ->columns(2),
             ]);
@@ -49,12 +56,26 @@ class DokterResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("id")->label("ID Dokter")->sortable()->searchable(),
-                TextColumn::make("Nama_Dokter")->sortable()->searchable(),
-                TextColumn::make("TTL_Dokter")->label("TTL Dokter")->sortable()->searchable(),
-                TextColumn::make("Alamat_Dokter")->searchable(),
-                TextColumn::make("Gender")->searchable(),
-                TextColumn::make("Telp_Dokter")->searchable() 
+                TextColumn::make('ID_Dokter')
+                ->label('ID Dokter')
+                ->sortable()
+                ->searchable(),
+                TextColumn::make("Nama_Dokter")
+                ->label('Nama Dokter')
+                ->sortable()
+                ->searchable(),
+                TextColumn::make("TTL_Dokter")
+                ->label("TTL Dokter")
+                ->sortable()
+                ->searchable(),
+                TextColumn::make("Alamat_Dokter")
+                ->label("Alamat Dokter")
+                ->searchable(),
+                TextColumn::make("Gender")
+                ->searchable(),
+                TextColumn::make("Telp_Dokter")
+                ->label("Telpon Dokter")
+                ->searchable() 
             ])
             ->filters([
                 //

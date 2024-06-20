@@ -31,7 +31,9 @@ class ObatResource extends Resource
         return $form
             ->schema([
                 Card::make() ->schema([
-                    TextInput::make('id_Obat')->required()->unique(ignorable: fn ($record) => $record),
+                    TextInput::make('ID_Obat')
+                    ->label('ID Obat')
+                    ->required()->unique(ignorable: fn ($record) => $record),
                     TextInput::make('Nama_Obat')->required(),
                 ])
                 ->columns(2),
@@ -42,7 +44,7 @@ class ObatResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("id")->label("ID Obat")->sortable()->searchable(),
+                TextColumn::make("ID_Obat")->label("ID Obat")->sortable()->searchable(),
                 TextColumn::make("Nama_Obat")->sortable()->searchable()
             ])
             ->filters([

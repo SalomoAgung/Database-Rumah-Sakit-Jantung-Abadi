@@ -31,7 +31,7 @@ class PenyakitResource extends Resource
         return $form
             ->schema([
                 Card::make() ->schema([
-                    TextInput::make('ID_Penyakit')->required()->unique(ignorable: fn ($record) => $record),
+                    TextInput::make('ID_Penyakit')->label('ID Penyakit')->required()->unique(ignorable: fn ($record) => $record),
                     TextInput::make('Nama_Penyakit')->required(),
                     TextInput::make('Jumlah_Pasien')->required(),
                 ])
@@ -43,7 +43,7 @@ class PenyakitResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("id")->label("ID Penyakit")->sortable()->searchable(),
+                TextColumn::make("ID_Penyakit")->label("ID Penyakit")->sortable()->searchable(),
                 TextColumn::make("Nama_Penyakit")->sortable()->searchable(),
                 TextColumn::make("Jumlah_Pasien")->sortable()->searchable(),
             ])

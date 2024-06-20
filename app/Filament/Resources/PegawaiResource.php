@@ -31,16 +31,16 @@ class PegawaiResource extends Resource
         return $form
             ->schema([
                 Card::make() ->schema([
-                    TextInput::make('ID_Pegawai')->required()->unique(ignorable: fn ($record) => $record),
-                    TextInput::make('Nama')->required(),
-                    DatePicker::make('TTL_Pegawai')->required(),
-                    TextInput::make('Alamat')->required(),
+                    TextInput::make('ID_Pegawai')->label('ID Pegawai')->required()->unique(ignorable: fn ($record) => $record),
+                    TextInput::make('Nama_Pegawai')->required(),
+                    DatePicker::make('TTL_Pegawai')->label('TTL Pegawai')->required(),
+                    TextInput::make('Alamat_Pegawai')->required(),
                     Select::make("Gender")->options([
                         "Male" => "Male",
                         "Female" => "Female"
                     ]),
                     TextInput::make('Telp_Pegawai')->required(),
-                    Select::make("Role")->options([
+                    Select::make("Role_Pegawai")->options([
                         "Apoteker" => "Apoteker",
                         "Perawat" => "Perawat"
                     ])
@@ -53,7 +53,7 @@ class PegawaiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("id")->label("ID Pegawai")->sortable()->searchable(),
+                TextColumn::make("ID_Pegawai")->label("ID Pegawai")->sortable()->searchable(),
                 TextColumn::make("Nama_Pegawai")->sortable()->searchable(),
                 TextColumn::make("TTL_Pegawai")->label("TTL Pegawai")->sortable()->searchable(),
                 TextColumn::make("Alamat_Pegawai")->searchable(),

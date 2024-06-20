@@ -31,10 +31,10 @@ class PasienResource extends Resource
         return $form
             ->schema([
                 Card::make() ->schema([
-                    TextInput::make('ID_Pasien')->required()->unique(ignorable: fn ($record) => $record),
-                    TextInput::make('Nama')->required(),
-                    DatePicker::make('TTL_Pasien')->required(),
-                    TextInput::make('Alamat')->required(),
+                    TextInput::make('ID_Pasien')->label('ID Pasien')->required()->unique(ignorable: fn ($record) => $record),
+                    TextInput::make('Nama_Pasien')->required(),
+                    DatePicker::make('TTL_Pasien')->label('TTL Pasien')->required(),
+                    TextInput::make('Alamat_Pasien')->required(),
                     Select::make("Gender")->options([
                         "Male" => "Male",
                         "Female" => "Female"
@@ -49,7 +49,7 @@ class PasienResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("id")->label("ID Pasien")->sortable()->searchable(),
+                TextColumn::make("ID_Pasien")->label("ID Pasien")->sortable()->searchable(),
                 TextColumn::make("Nama_Pasien")->sortable()->searchable(),
                 TextColumn::make("TTL_Pasien")->label("TTL Pasien")->sortable()->searchable(),
                 TextColumn::make("Alamat_Pasien")->searchable(),

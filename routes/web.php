@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('patient.form');
 });
+
+
+
+// Route::get('/patient-info', [PatientController::class, 'showForm'])->name('patient.form');
+// Route::post('/patient-info', [PatientController::class, 'getTransactionDetails'])->name('patient.details');
+Route::get('/patient/form', function () {
+    return view('patient.form');
+})->name('patient.form');
+
+Route::post('/patient/details', [PatientController::class, 'showDetails'])->name('patient.details');
